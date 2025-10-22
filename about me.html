@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Me | My Portfolio</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <!-- ✅ Mobile Header -->
+    <header class="mobile-header">
+      <button
+        id="sidebarToggle"
+        aria-label="Toggle navigation"
+        data-testid="test-sidebar-toggle"
+      >
+        ☰
+      </button>
+      <h1 class="mobile-title">About Me</h1>
+    </header>
+
+    <!-- ✅ Sidebar -->
+    <nav class="sidebar" data-testid="test-sidebar">
+      <div class="sidebar-header" data-testid="test-sidebar-header">
+        <h2>My Portfolio</h2>
+      </div>
+
+      <ul class="sidebar-menu" data-testid="test-sidebar-menu">
+        <li>
+          <a href="index.html" data-testid="test-sidebar-home">🏠 Profile</a>
+        </li>
+        <li>
+          <a href="about me.html" data-testid="test-sidebar-about">🙋‍♂️ About Me</a>
+        </li>
+        <li>
+          <a href="contact me.html" data-testid="test-sidebar-contact">✉️ Contact Me</a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- ✅ Overlay -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- ✅ Main Content -->
+    <main data-testid="test-about-page" class="about-main">
+      <section data-testid="test-about-bio" class="about-section">
+        <h2>👤 Bio</h2>
+        <p>
+          I'm Chimgozirim Udo, a creative and passionate front-end enthusiast
+          exploring the world of design and web technologies. I enjoy building
+          interactive and accessible interfaces that make digital experiences
+          more human and beautiful.
+        </p>
+      </section>
+
+      <section data-testid="test-about-goals" class="about-section">
+        <h2>🎯 Goals in This Program</h2>
+        <p>
+          My goal in this program is to strengthen my understanding of modern
+          front-end development practices, accessibility, and responsive design.
+          I want to gain hands-on experience creating projects that solve real
+          problems and prepare me for professional development roles.
+        </p>
+      </section>
+
+      <section data-testid="test-about-confidence" class="about-section">
+        <h2>💭 Areas of Low Confidence</h2>
+        <p>
+          I sometimes find debugging complex JavaScript logic challenging.
+          However, I’m improving by practicing regularly and learning how to
+          read and interpret error messages better. I also want to grow my
+          confidence in UX design decisions.
+        </p>
+      </section>
+
+      <section data-testid="test-about-future-note" class="about-section">
+        <h2>📝 Note to Future Self</h2>
+        <p>
+          Keep learning, keep experimenting, and never lose your curiosity.
+          Every challenge is an opportunity to grow and become better than
+          yesterday.
+        </p>
+      </section>
+
+      <section data-testid="test-about-extra" class="about-section">
+        <h2>💡 Extra Thoughts</h2>
+        <p>
+          Collaboration and community make technology thrive. I’m grateful for
+          spaces that allow us to learn, share, and build together. The journey
+          is just as important as the destination.
+        </p>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

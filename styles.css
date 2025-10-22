@@ -1,0 +1,393 @@
+/* ===== RESET ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Poppins", Arial, sans-serif;
+  background-color: #e0f7f5;
+  color: #222;
+  min-height: 100vh;
+  transition: background 0.4s ease;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -220px; /* hidden by default */
+  height: 100%;
+  width: 220px;
+  background-color: #0f3057;
+  color: #f1f1f1;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.2);
+  overflow-x: hidden;
+  transition: left 0.3s ease;
+  z-index: 1000;
+  border-right: 2px solid #00bfa6;
+}
+
+/* Show when toggled open */
+.sidebar.open {
+  left: 0;
+}
+
+/* Hover from screen edge (desktop only) */
+@media (min-width: 769px) {
+  body:hover .sidebar {
+    left: -210px;
+  }
+  body:hover .sidebar:hover {
+    left: 0;
+  }
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.sidebar-header h2 {
+  font-size: 1rem;
+  color: #f1f1f1;
+  white-space: nowrap;
+}
+
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-menu li {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.sidebar-menu a {
+  display: block;
+  padding: 0.9rem 1rem;
+  text-decoration: none;
+  color: #f1f1f1;
+  transition: background 0.3s ease, color 0.3s ease;
+  border-radius: 0.3rem;
+}
+
+.sidebar-menu a:hover {
+  background-color: #00bfa6;
+  color: #fff;
+}
+
+/* ===== OVERLAY ===== */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 900;
+}
+
+.overlay.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* ===== MOBILE HEADER ===== */
+.mobile-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: #0f3057;
+  color: #f1f1f1;
+  padding: 0.7rem 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1100;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.mobile-header button {
+  background: none;
+  border: none;
+  color: #f1f1f1;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+.mobile-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+@media (min-width: 769px) {
+  .mobile-header {
+    display: none;
+  }
+}
+
+/* ===== MAIN CONTENT ===== */
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  margin-left: 0;
+  min-height: 100vh;
+  transition: margin 0.3s ease;
+}
+
+/* Add space when sidebar visible (desktop hover) */
+@media (min-width: 769px) {
+  .sidebar:hover ~ main {
+    margin-left: 220px;
+  }
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  main {
+    margin-left: 0;
+    padding-top: 4.5rem;
+  }
+}
+
+/* ===== PROFILE CARD ===== */
+.profile-card {
+  background-color: #fdfdfd;
+  border-radius: 1rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  max-width: 420px;
+  width: 100%;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  animation: fadeIn 0.6s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.profile-header {
+  text-align: center;
+}
+
+.avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 0.75rem;
+  border: 3px solid #00bfa6;
+}
+
+.profile-header h1 {
+  font-size: 1.5rem;
+  color: #0f3057;
+  margin-bottom: 0.5rem;
+}
+
+.profile-header p {
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.time {
+  font-weight: bold;
+  color: #00bfa6;
+}
+
+.social-section h2,
+.list-block h2 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: #0f3057;
+}
+
+.social-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.social-links a {
+  text-decoration: none;
+  color: #00bfa6;
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover,
+.social-links a:focus {
+  color: #0f3057;
+}
+
+.lists {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  text-align: center;
+}
+
+.list-block ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+  text-align: left;
+}
+
+.list-block ul li {
+  margin: 0.3rem 0;
+}
+
+h2{
+    text-align: center;
+}
+/* ===== CONTACT FORM ===== */
+.contact-section {
+  background-color: #fdfdfd;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+}
+
+.contact-section h2 {
+  color: #0f3057;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  color: #0f3057;
+}
+
+input,
+textarea {
+  padding: 0.7rem;
+  border: 1px solid #ccc;
+  border-radius: 0.4rem;
+  font-size: 1rem;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #00bfa6;
+  outline: none;
+}
+
+button[type="submit"] {
+  background-color: #00bfa6;
+  color: #fff;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  font-size: 1rem;
+  width: 100%;
+  transition: background 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #0f3057;
+}
+
+.error-msg {
+  color: red;
+  font-size: 0.85rem;
+  margin-top: 0.2rem;
+}
+
+.success-msg {
+  text-align: center;
+  color: #00bfa6;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+/* ===== ABOUT PAGE ===== */
+.about-main {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background-color: #fdfdfd;
+  padding: 2rem;
+  border-radius: 1rem;
+  max-width: 700px;
+  margin: 2rem auto;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.about-section h2 {
+  color: #0f3057;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.about-section p {
+  color: #333;
+  line-height: 1.6;
+}
+
+
+/* ===== SIDEBAR FONT ENHANCEMENTS ===== */
+.sidebar-header h2 {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: #00bfa6; /* bright teal accent */
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0 auto;
+  transition: color 0.3s ease;
+}
+
+.sidebar-header h2:hover {
+  color: #ffffff;
+}
+
+.sidebar-menu a {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.4px;
+}
+
+.sidebar-menu a:hover {
+  background-color: #00bfa6;
+  color: #ffffff;
+  font-weight: 600;
+  transform: scale(1.02);
+  transition: all 0.3s ease;
+}
