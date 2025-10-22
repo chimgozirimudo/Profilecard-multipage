@@ -20,4 +20,18 @@ This project includes a Profile page, an About Me page, and a Contact page with 
 
 🕒 Real-time clock on profile card
 
+
+🗂️ Project Structure
+
+project-folder/
+│
+├── index.html           # Profile Page
+├── about.html           # About Me Page
+├── contact.html         # Contact Page
+├── styles.css           # Main stylesheet
+├── script.js            # Sidebar + form logic
+├── profile.jpg          # Profile image
+└── README.md            # Project documentation
+
+
 # Profilecard-multipage
